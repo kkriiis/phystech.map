@@ -1,0 +1,8 @@
+101
+102
+buf_LK_GK
+buf_GK_LK
+buf_11_21
+buf_21_11
+buf_11_12
+buf_12_11

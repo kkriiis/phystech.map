@@ -1,0 +1,9 @@
+4
+103 buf_13_12
+103 buf_12_13
+103 buf_LK_GK
+103 buf_GK_LK
+buf_13_12 buf_12_13 0
+buf_12_13 buf_13_12 0
+buf_LK_GK 103
+buf_GK_LK 103

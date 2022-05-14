@@ -1,0 +1,6 @@
+buf_11_12
+pass through staircase
+buf_11_21
+upstair 1 floor and turn left
+buf_12_13
+pass through doors
