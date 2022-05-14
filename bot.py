@@ -73,9 +73,11 @@ def start(message):
 
 @bot.message_handler(commands=['route'])
 def start(message):
-    #subprocess.call('./to_Kris.sh')
-    line = 'Go on left 20 metres.'
-    bot.send_message(message.chat.id, line)
+    subprocess.call('./to_Sonya.sh')
+    file = open("output_from_Sonya.txt", "r")
+    line_1 = file.read()
+    file.close()
+    bot.send_message(message.chat.id, line_1)
     file = open("file.txt", "w")
     file.close()
 
