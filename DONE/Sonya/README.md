@@ -12,6 +12,6 @@ DataBase - база данных, типизированная для работ
 
 Как это (пока) выглядит:
 
-![](https://github.com/jon/coolproject/raw/master/image/readme.jpg)
+![](https://github.com/borisskok/phystech.map/blob/main/DONE/Sonya/readme.jpg)
 
 по всем вопросам можно обращаться вконтакте - https://vk.com/s_sukhova
