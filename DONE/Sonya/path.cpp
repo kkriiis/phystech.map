@@ -46,7 +46,7 @@ std::ostream & operator<< (std::ostream & stream, const Path & string)
     {
         if (it != string.get_sizes() - 2)
         {
-            if ((string._endings[it].compare(string._beginnings[it + 1]) != "room") && (string._endings[it].compare(string._beginnings[it + 1]) != "equal"))
+            if ((string._endings[it].compare(string._beginnings[it + 1]) == "section") || (string._endings[it].compare(string._beginnings[it + 1]) == "building"))
                 stream << " -> ";
             else
             stream <<  " -> " << string._endings[it].get_number() << ' ';
