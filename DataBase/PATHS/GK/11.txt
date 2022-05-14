@@ -1,5 +1,16 @@
 101 102 buf_LK_GK buf_GK_LK buf_11_21 buf_21_11
-101 102
-102 101
+101 102 1
+102 101 1
 buf_GK_LK buf_LK_GK 0
 buf_LK_GK buf_GK_LK 0
+101 buf_LK_GK 1
+101 buf_GK_LK 1
+buf_LK_GK 101 1
+buf_GK_LK 101 1
+102 buf_11_21 1
+102 buf_21_11 1
+buf_11_21 102 1
+buf_21_11 102 1
+buf_11_21 buf_21_11 0
+buf_21_11 buf_11_21 0
+
