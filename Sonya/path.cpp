@@ -139,7 +139,7 @@ void Path::buildings_path(const AllMIPTHash & FullHashTable)
     
     //speak with Chris
     
-    system("to_Sonya.sh");
+    system(".././to_Kris.sh");
     
     // get file with name like std::string NameOfFile
     
@@ -214,7 +214,7 @@ int Path::sections_path(const AllMIPTHash & FullHashTable, int iterator, const H
 
     //speak with Chris
     
-    system("to_Sonya.sh");
+    system(".././to_Kris.sh");
     
     //read info from Chris
     
@@ -297,7 +297,7 @@ int Path::rooms_path(const AllMIPTHash & FullHashTable, int iterator)
 
     //speak with Chris
     
-    system("to_Sonya.sh");
+    system(".././to_Kris.sh");
     
     //read info from Chris
     std::string NameOfFile = "../output_from_Kris.txt";
