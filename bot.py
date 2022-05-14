@@ -10,7 +10,7 @@ def review_0(message):
     message_to_save = message.text
     print(message_to_save)
 
-    file = open("AB.txt", "w")
+    file = open("file.txt", "w")
     file.write(message_to_save)
     file.close()
 
@@ -19,11 +19,11 @@ def review(message):
     message_to_save = message.text
     print(message_to_save)
 
-    file = open("AB.txt", "r")
+    file = open("file.txt", "r")
     temp = file.read()
     file.close()
 
-    file = open("AB.txt", "w")
+    file = open("file.txt", "w")
     file.write(temp + '\n' + message_to_save)
     file.close()
 
@@ -76,7 +76,7 @@ def start(message):
     #subprocess.call('./to_Kris.sh')
     line = 'Go on left 20 metres.'
     bot.send_message(message.chat.id, line)
-    file = open("AB.txt", "w")
+    file = open("file.txt", "w")
     file.close()
 
 bot.polling()
