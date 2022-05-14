@@ -100,16 +100,18 @@ void Path::make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPa
             counter = this -> sections_path(FullHashTable, i + counter, HashPath);
     }
     
+    //this -> print();
+    
     //make paths between different rooms in same sections. This step ias need only for beginning and ending of all path.
     temp_begin = _beginnings;
     temp_end = _endings;
-    
     counter = 0;
-    if(temp_begin[0].compare(temp_end[0]) == "room")
-            counter = this -> rooms_path(FullHashTable, 0);
     
-    if(temp_begin[temp_begin.size() - 1].compare(temp_end[temp_end.size() - 1]) == "room")
-        counter = this -> rooms_path(FullHashTable, temp_begin.size() - 1 + counter);
+    for (auto i = 0; i < temp_begin.size(); ++i)
+    {
+        if(temp_begin[i].compare(temp_end[i]) == "room")
+            counter = this -> rooms_path(FullHashTable, i + counter);
+    }
 };
 
 void Path::buildings_path(const AllMIPTHash & FullHashTable)
@@ -336,6 +338,9 @@ int Path::change_rooms_path(const AllMIPTHash & FullHashTable, std::string NameO
         temp_it ++;
         InputFile >> from;
     };
+    
+    //this -> print();
+    
     InputFile.close();
     return temp_it - iterator;
 }

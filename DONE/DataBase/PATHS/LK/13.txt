@@ -1,13 +1,7 @@
 buf_12_13 buf_13_12 buf_LK_GK buf_GK_LK
 buf_13_12 buf_12_13 0
-buf_12_13 buf_13_12 0
 buf_LK_GK buf_GK_LK 0
-buf_GK_LK buf_LK_GK 0
 buf_LK_GK buf_12_13 1
 buf_LK_GK buf_13_12 1
 buf_GK_LK buf_12_13 1
 buf_GK_LK buf_13_12 1
-buf_12_13 buf_GK_LK 1
-buf_12_13 buf_LK_GK 1
-buf_13_12 buf_GK_LK 1
-buf_13_12 buf_LK_GK 1

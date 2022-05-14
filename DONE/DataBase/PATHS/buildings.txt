@@ -1,5 +1,3 @@
 GK LK NK
 GK NK 1
 GK LK 2
-LK GK 2
-NK GK 1

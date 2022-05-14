@@ -1,2 +1,1 @@
- wrong read from file
-
+Go to  -> 102  -> pass through staircase -> pass through doors -> change building -> 101  -> 102  -> upstair 1 floor and turn left -> 202
