@@ -1,2 +1,1 @@
- wrong read from file
-
+Go to  -> buf_21_11 downstair 1 floor and turn left -> 102  -> 101  -> change building -> buf_13_12 pass through doors -> buf_12_11 pass through staircase ->  -> 101

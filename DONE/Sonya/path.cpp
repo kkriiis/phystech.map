@@ -112,6 +112,7 @@ void Path::make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPa
         if(temp_begin[i].compare(temp_end[i]) == "room")
             counter = this -> rooms_path(FullHashTable, i + counter);
     }
+    
 };
 
 void Path::buildings_path(const AllMIPTHash & FullHashTable)
@@ -248,9 +249,6 @@ int Path::change_sections_path(const AllMIPTHash & FullHashTable, std::string Na
         
         //Make new end tail
         buff = RoomInMIPT(building, from, buff_name);
-        
-        //Find in Hash
-        buff = FullHashTable.FindInBuildingHash(buff);
         
         //write buffer as new end
         _endings.insert(temp_it + _endings.begin(), buff);
