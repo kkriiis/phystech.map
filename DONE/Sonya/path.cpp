@@ -100,8 +100,6 @@ void Path::make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPa
             counter = this -> sections_path(FullHashTable, i + counter, HashPath);
     }
     
-    //this -> print();
-    
     //make paths between different rooms in same sections. This step ias need only for beginning and ending of all path.
     temp_begin = _beginnings;
     temp_end = _endings;
