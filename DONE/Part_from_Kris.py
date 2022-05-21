@@ -76,4 +76,4 @@ while end != start:
 #записываем полученный путь в файл
 
 with open("output_from_Kris.txt", "w") as output:
-    print(*reversed(names), file = output)
+    output.write(" ".join(names[i] for i in reversed(P)))
