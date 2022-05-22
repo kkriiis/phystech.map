@@ -3,37 +3,23 @@ import math
 with open("input.txt", "r") as input:   #считываем данные из файла, разделяем всё по строкам
     data = input.read().split("\n")
 
-names = []  #создаем список имен - названий вершин, знаем, что первая строка в файле их содержит
-for i in data[0].split(" "):
-    names.append(i)
+names = { name: i for i, name in enumerate(data[0].split(" ")) }
+len_names = len(names)
 
-#A = np.full((len(names), len(names)), math.inf) #создаем матрицу из бесконечностей
+A = [[0 if i == j else math.inf
+        for i in range(len_names)]
+            for j in range(len_names)]
 
-A = list()
-for i in range(len(names)):
-    mini_A = list()
-    for j in range(len(names)):
-        mini_A.append(math.inf)
-    A.append(mini_A)
+for i in range(1, len(data) - 1):
+    x_name, y_name, edge_len = data[i].split(" ")
+    x = names[x_name]
+    y = names[y_name]
+    A[x][y] = A[y][x] = int(edge_len)
 
-for i in range(len(names)):     #начинаем заполнение матрицы весами ребер
-    A[i][i] = 0     #присваиваем нули по диагоналям
-    for j in range(1, len(data)-1, 1):
-        connection =  data[j].split(" ") 
-        for x in range(len(names)):
-            if (connection[0] == names[x]):     #ищем первую вершину, указанную в строчке
-                for y in range(len(names)):       #ищем вторую вершину, указанную в строчке. Также знаем, что она гарантированно будет дальше по номеру, относительно первой вершины
-                    if (connection[1] == names[y]):     #если это не гарантированно, то range(len(names))
-                        A[x][y] = int(connection[2])     #заполняем матрицу(получается симметричной)
-                        A[y][x] = int(connection[2])
+dest = data[-1].split(" ")       #записываем начало и конец пути в переменные, зная, что в файле эта информация на последней строке
 
-dest = data[len(data) - 1].split(" ")       #записываем начало и конец пути в переменные, зная, что в файле эта информация на последней строке
-
-for i in range(len(names)):
-    if(dest[0] == names[i]):
-        start = i
-    if (dest[1] == names[i]):
-        end = i
+start = names[dest[0]]
+end = names[dest[1]]
 
 #функция для выбора следующего узла в наименьшим весом
 
@@ -48,11 +34,11 @@ def arg_min(Weight, Viewed):
 
 ## Алгоритм Дейкстры ##
 
-Weight = [math.inf]*len(names)      #последняя строка таблицы
+Weight = [math.inf]*len_names      #последняя строка таблицы
 
 Viewed = {start}        #просмотренные вершины
 Weight[start] = 0       #нулевой вес для стартовой вершины
-Optimal = [0]*len(names)        #оптимальные связи между вершинами
+Optimal = [0]*len_names        #оптимальные связи между вершинами
 
 v = start
 while v != -1:      #просматривавем все вершины
@@ -73,7 +59,12 @@ while end != start:
     end = Optimal[P[-1]]
     P.append(end)
 
-#записываем полученный путь в файл
+print(P)
+road = []
+for i in range(len(P)-1, -1, -1):
+    for key, value in names.items():
+        if value == P[i]:
+            road.append(key)
 
 with open("output_from_Kris.txt", "w") as output:
-    output.write(" ".join(names[i] for i in reversed(P)))
+    output.write(" ".join(road[i] for i in range(len(road))))
