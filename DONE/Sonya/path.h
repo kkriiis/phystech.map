@@ -29,11 +29,11 @@ public:
     void make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPath);
     
     void buildings_path(const AllMIPTHash & FullHashTable); //will be called only once for one Path
-    int sections_path(const AllMIPTHash & FullHashTable, int iterator, const HashPaths & HashPath); //return number of added elements.The same meaning for the following
+    int sections_path(int iterator, const HashPaths & HashPath); //return number of added elements.The same meaning for the following
     int rooms_path(const AllMIPTHash & FullHashTable, int iterator);
     
     void change_buildings_path(const AllMIPTHash & HashTable, std::string NameOfFile);
-    int change_sections_path(const AllMIPTHash & HashTable, std::string NameOfFile, int iterator, std::string building, const HashPaths & HashPath);
+    int change_sections_path(std::string NameOfFile, int iterator, std::string building, const HashPaths & HashPath);
     int change_rooms_path(const AllMIPTHash & HashTable, std::string NameOfFile, int iterator, std::string building, int section);
     
 };

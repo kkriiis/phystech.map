@@ -59,7 +59,7 @@ RoomInMIPT AllMIPTHash::FindInBuildingHash(const RoomInMIPT & RoomToFind) const
 
 void AllMIPTHash::print_Hash(int iterator)
 {
-    for(auto i = 0; i <  Hashes[iterator].bucket_count(); ++i)
+    for(long unsigned int i = 0; i <  Hashes[iterator].bucket_count(); ++i)
     {
         std::cout<< "bucket #"<< i << "contains:";
             for(auto local_it = Hashes[iterator].begin(i); local_it != Hashes[iterator].end(i) ; ++local_it)
@@ -117,7 +117,6 @@ void MakeHashForBuilding(const std::string & building, AllMIPTHash & HashTable){
 void MakeHashForSection(int &section, int &counter, const  std::string & building,  std::ifstream & FileFrom, HashSet & HashArray){
     
     std::string CurrentRoom;
-    int key;
     for (auto i = 0; i < counter; ++i){
         
         FileFrom >> CurrentRoom;

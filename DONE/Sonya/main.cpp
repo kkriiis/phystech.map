@@ -58,23 +58,23 @@ void WriteAnswer(const std::string & NameOfFile, const AllMIPTHash & FullHashTab
         //write path to file
         OutputFile << MyPath;
     }
-    catch(WrongReadFromFileException s)
+    catch(WrongReadFromFileException &s)
     {
         OutputFile << s.what() << '\n';
     }
-    catch(NotFoundInDataBaseException s)
+    catch(NotFoundInDataBaseException &s)
     {
         OutputFile << s.what() << '\n';
     }
-    catch(NonvaluableBuildingException s)
+    catch(NonvaluableBuildingException &s)
     {
         OutputFile << s.what() << " is non valuable building\n";
     }
-    catch(CollisiousInHashException s)
+    catch(CollisiousInHashException &s)
     {
         OutputFile << s.what() << '\n';
     }
-    catch(NonvaluableRoomException s)
+    catch(NonvaluableRoomException &s)
     {
         OutputFile << s.what() << '\n';
     }

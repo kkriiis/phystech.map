@@ -85,7 +85,7 @@ void Path::make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPa
     std::vector<RoomInMIPT> temp_end = _endings;
     int counter = 0;
     
-    for (auto i = 0; i < temp_begin.size(); ++i)
+    for (long unsigned int i = 0; i < temp_begin.size(); ++i)
     {
         if(temp_begin[i].compare(temp_end[i]) == "building")
             this -> buildings_path(FullHashTable);
@@ -94,10 +94,10 @@ void Path::make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPa
     //make paths between different sections
     temp_begin = _beginnings;
     temp_end = _endings;
-    for (auto i = 0; i < temp_begin.size(); ++i)
+    for (long unsigned int i = 0; i < temp_begin.size(); ++i)
     {
         if(temp_begin[i].compare(temp_end[i]) == "section")
-            counter = this -> sections_path(FullHashTable, i + counter, HashPath);
+            counter = this -> sections_path(i + counter, HashPath);
     }
     
     //make paths between different rooms in same sections. This step ias need only for beginning and ending of all path.
@@ -105,7 +105,7 @@ void Path::make_Path(const AllMIPTHash & FullHashTable, const HashPaths & HashPa
     temp_end = _endings;
     counter = 0;
     
-    for (auto i = 0; i < temp_begin.size(); ++i)
+    for (long unsigned int i = 0; i < temp_begin.size(); ++i)
     {
         if(temp_begin[i].compare(temp_end[i]) == "room")
             counter = this -> rooms_path(FullHashTable, i + counter);
@@ -189,7 +189,7 @@ void Path::change_buildings_path(const AllMIPTHash & FullHashTable, std::string 
     InputFile.close();
 }
 
-int Path::sections_path(const AllMIPTHash & FullHashTable, int iterator, const HashPaths & HashPath)
+int Path::sections_path(int iterator, const HashPaths & HashPath)
 {
     RoomInMIPT from = _beginnings[iterator];
     RoomInMIPT to = _endings[iterator];
@@ -220,13 +220,13 @@ int Path::sections_path(const AllMIPTHash & FullHashTable, int iterator, const H
     
     std::string NameOfFile = "../output_from_Kris.txt";
     
-    int counter = this -> change_sections_path(FullHashTable, NameOfFile, iterator, from.get_building(), HashPath);
+    int counter = this -> Path::change_sections_path(NameOfFile, iterator, from.get_building(), HashPath);
     return counter;
     
 }
 
 
-int Path::change_sections_path(const AllMIPTHash & FullHashTable, std::string NameOfFile, int iterator, std::string building, const HashPaths & HashPath)
+int Path::change_sections_path(std::string NameOfFile, int iterator, std::string building, const HashPaths & HashPath)
 {
     std::ifstream InputFile;
     InputFile.open(NameOfFile);
